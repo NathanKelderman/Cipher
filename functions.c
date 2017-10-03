@@ -1,38 +1,43 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// remove duplicate characters in array word and return the result string
-char* removeDuplicates(char word[], int size) {
-	char* final = (char*)malloc(size*sizeof(char));
-	int count = 0;
-	int freePosition = 0;
-	while (count < size) {
-		int tempCount = 0;
-		int numDuplicates = 0;
-		while (tempCount < freePosition) {
-			if (word[count] == final[tempCount])
-				numDuplicates++;
-			tempCount++;
-		}
-		if (numDuplicates == 0) {
-			final[freePosition] = word[count];
-			freePosition++;
-		}
-		count++;	
-	}
-	return final;
-}
-/*
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target) {
-	return 0;
+        int tempCount = 0;
+        int numDuplicates = 0;
+        while (tempCount < num) {
+                if (target == charArray[tempCount])
+                        numDuplicates++;
+                tempCount++;
+        }
+        return numDuplicates;
 }
 
+
+// remove duplicate characters in array word and return the result string
+// caller has to free memory of returned array
+char* removeDuplicates(char word[]) {
+	char* final = (char*)malloc(1*sizeof(char));
+	int count = 0;
+	int freePosition = 0;
+	while (word[count] != '\0') {
+		if (targetFound(final, freePosition, word[count]) == 0) {
+			final[freePosition] = word[count];
+			freePosition++;
+			char* tmp_final = realloc(final, freePosition*sizeof(char));
+			final = tmp_final;
+		}
+		count++;
+	}
+	return final;
+}
+
+/*
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
 void initializeEncryptArray(char key[], char encrypt[]) {
-
+	
 }
 
 // initialize the decrypt array with appropriate substitute letters based 
