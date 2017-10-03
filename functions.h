@@ -2,8 +2,8 @@
 #define functions
 
 // remove duplicate characters in array word and return the result string
-char* removeDuplicates(char word[]);
-
+char* removeDuplicates(char word[], int size);
+/*
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target);
@@ -20,5 +20,5 @@ void initializeDecryptArray(char encrypt[], char decrypt[]);
 // pass the encrypt array to parameter substitute if encryption is intended 
 // pass the decrypt array to parameter substitute if decryption is intended
 void processInput(FILE* inf, FILE* outf, char substitute[]);
-
+*/
 #endif
