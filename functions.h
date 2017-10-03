@@ -2,12 +2,12 @@
 #define functions
 
 // remove duplicate characters in array word and return the result string
-char* removeDuplicates(char word[], int size);
-/*
+char* removeDuplicates(char word[]);
+
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target);
-
+/*
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
 void initializeEncryptArray(char key[], char encrypt[]);
