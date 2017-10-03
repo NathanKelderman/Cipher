@@ -5,8 +5,13 @@
 char* removeDuplicates(char word[]);
 
 int main(int argc, char** argv) {
-	char word[10] = {a, b, c, c};
+	char word[21] = "xaaabxbbccbxbbccxcccc";	
 	char* final = removeDuplicates(word);
-	printf("%s", final);
+	int count = 0;
+	while(final[count] != '\0') {
+		printf("\n%c\n", final[count]);
+		count++;
+	}
+	free(final);
 	return 0;
 }
