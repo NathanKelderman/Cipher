@@ -1,14 +1,14 @@
-
+#include <stdlib.h>
+#include <stdio.h>
 
 // remove duplicate characters in array word and return the result string
-char* removeDuplicates(char word[]) {
-	int size = sizeof(word);
-	char* final[size];
+char* removeDuplicates(char word[], int size) {
+	char* final = (char*)malloc(size*sizeof(char));
 	int count = 0;
-	freePosition = 0;
-	while (word[count] != "\0") {
+	int freePosition = 0;
+	while (count < size) {
 		int tempCount = 0;
-		int numDuplicates = 0
+		int numDuplicates = 0;
 		while (tempCount < freePosition) {
 			if (word[count] == final[tempCount])
 				numDuplicates++;
@@ -22,7 +22,7 @@ char* removeDuplicates(char word[]) {
 	}
 	return final;
 }
-
+/*
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target) {
@@ -47,5 +47,5 @@ void initializeDecryptArray(char encrypt[], char decrypt[]) {
 void processInput(FILE* inf, FILE* outf, char substitute[]) {
 
 }
-
+*/
 
