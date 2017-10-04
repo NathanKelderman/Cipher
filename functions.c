@@ -1,25 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "functions.h"
 
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target) {
         int tempCount = 0;
-        int numDuplicates = 0;
         while (tempCount < num) {
                 if (target == charArray[tempCount])
-                        numDuplicates++;
+                        return 1;
                 tempCount++;
         }
-//	printf("%d", numDuplicates);
-        return numDuplicates;
+        return 0;
 }
 
 
 // remove duplicate characters in array word and return the result string
 // caller has to free memory of returned array
 char* removeDuplicates(char word[]) {
-	char* final = (char*)malloc(26*sizeof(char));
+	char* final = (char*)malloc(27*sizeof(char));
 	int count = 0;
 	int freePosition = 0;
 	while (word[count] != '\0') {
@@ -29,13 +28,14 @@ char* removeDuplicates(char word[]) {
 		}
 		count++;
 	}
+	final[freePosition] = '\0';
 	return final;
 }
 
 
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
-void initializeEncryptArray(char key[], char* encrypt[]) {
+void initializeEncryptArray(char key[], char encrypt[]) {
 	char* encrypt_ = removeDuplicates(key);
 	int freePosition = 0;
 	while ( encrypt_[freePosition] != '\0')
@@ -47,7 +47,8 @@ void initializeEncryptArray(char key[], char* encrypt[]) {
 		}
 		alphabet--;
 	}
-	*encrypt = encrypt_;
+	strcpy(encrypt, encrypt_);
+	printf("\nEncrypt: %s\n", encrypt);
 }
 
 // initialize the decrypt array with appropriate substitute letters based 
@@ -61,6 +62,7 @@ void initializeDecryptArray(char encrypt[], char decrypt[]) {
 			if (encrypt[j] == ((char)(i+65)))
 				decrypt[i] = (char)(j+65);
 		}
+	printf("\nDecrypt: %s\n", decrypt);
 }
 /*
 // process data from the input file and write the result to the output file

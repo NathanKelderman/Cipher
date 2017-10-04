@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void initializeEncryptArray(char key[], char* encrypt[]);
+void initializeEncryptArray(char key[], char encrypt[]);
 void initializeDecryptArray(char decrypt[], char encrypt[]);
 
 int main(int argc, char** argv) {
@@ -11,26 +11,29 @@ int main(int argc, char** argv) {
 //		puts("Not enough command line arguments.");
 //		return 0;
 //	}
-	char word[] = "FEATHER\0";	
-	char* encrypt = (char*)malloc(26*sizeof(char));
-	initializeEncryptArray(word, &encrypt);
-	int count = 0;
-	puts("Encrypt: ");
-	while(encrypt[count] != '\0') {
-		printf("%c", encrypt[count]);
-		count++;
-	}
+	char word[] = "FEATHER";	
+	
+	char encrypt[26];
+	initializeEncryptArray(word, encrypt);
+	printf("Encrypt: %s", encrypt);
+	
 	char decrypt[26];
         initializeDecryptArray(encrypt, decrypt);
-        count = 0;
-	puts("\nDecrypt: ");
-        while(count <= 25) {
-                printf("%c", decrypt[count]);
-                count++;
+       	printf("\nDecrypt: %s", decrypt);
+	
+	char plain[5] = "HELLO";
+	char enc[6];
+	for (int i = 0; i < 5; i++) {
+		enc[i] = encrypt[(plain[i])-65];
+	}
+	enc[5] = '\0';
+	printf("\nenc: %s\n", enc);
+	
+        char dec[5];
+        for (int i = 0; i < 5; i++) {
+        	dec[i] = decrypt[(enc[i])-65];
         }
-	puts("\n");
-	
-	
-	
+        printf("\nplain: %s\n", dec);
+
 	return 0;
 }
