@@ -11,11 +11,11 @@ int targetFound(char charArray[], int num, char target);
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
 void initializeEncryptArray(char key[], char* encrypt[]);
-/*
+
 // initialize the decrypt array with appropriate substitute letters based 
 // on the encrypt array
 void initializeDecryptArray(char encrypt[], char decrypt[]);
-
+/*
 // process data from the input file and write the result to the output file
 // pass the encrypt array to parameter substitute if encryption is intended 
 // pass the decrypt array to parameter substitute if decryption is intended

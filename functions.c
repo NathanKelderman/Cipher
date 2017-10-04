@@ -25,7 +25,6 @@ char* removeDuplicates(char word[]) {
 	while (word[count] != '\0') {
 		if (targetFound(final, freePosition, word[count]) == 0) {
 			final[freePosition] = word[count];
-			printf("\nfinal: %c\n", final[freePosition]);
 			freePosition++;
 		}
 		count++;
@@ -42,7 +41,6 @@ void initializeEncryptArray(char key[], char* encrypt[]) {
 	while ( encrypt_[freePosition] != '\0')
 		freePosition++;
 	int alphabet = 90;
-//	printf("%s\n", encrypt_);
 	while (alphabet > 64 ) {
 		if ( targetFound(encrypt_, freePosition, alphabet) == 0) {
 			encrypt_[freePosition++] = alphabet;	
@@ -50,15 +48,21 @@ void initializeEncryptArray(char key[], char* encrypt[]) {
 		alphabet--;
 	}
 	*encrypt = encrypt_;
-	printf("\nencrypt %s\n", *encrypt);
 }
-/*
+
 // initialize the decrypt array with appropriate substitute letters based 
 // on the encrypt array
 void initializeDecryptArray(char encrypt[], char decrypt[]) {
-
+    	int i,j;
+	
+	for (i = 0; i <= 26; i++)
+		for (j = 0; j <= 26; j++) {
+//			printf("%c", ((char)(j+65)));
+			if (encrypt[j] == ((char)(i+65)))
+				decrypt[i] = (char)(j+65);
+		}
 }
-
+/*
 // process data from the input file and write the result to the output file
 // pass the encrypt array to parameter substitute if encryption is intended 
 // pass the decrypt array to parameter substitute if decryption is intended
