@@ -11,6 +11,7 @@ int targetFound(char charArray[], int num, char target) {
                         numDuplicates++;
                 tempCount++;
         }
+//	printf("%d", numDuplicates);
         return numDuplicates;
 }
 
@@ -24,6 +25,7 @@ char* removeDuplicates(char word[]) {
 	while (word[count] != '\0') {
 		if (targetFound(final, freePosition, word[count]) == 0) {
 			final[freePosition] = word[count];
+			printf("\nfinal: %c\n", final[freePosition]);
 			freePosition++;
 		}
 		count++;

@@ -5,7 +5,7 @@
 void initializeEncryptArray(char key[], char* encrypt[]);
 char* removeDuplicates(char word[]);
 int main(int argc, char** argv) {
-	char word[10] = "HELLOGHGHG";	
+	char word[] = "HELKLNDNVJKVKJCKSLOGHGHG\0";	
 	char* encrypt;
 	initializeEncryptArray(word, &encrypt);
 //	int count = 0;
