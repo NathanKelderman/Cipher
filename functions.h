@@ -7,11 +7,11 @@ char* removeDuplicates(char word[]);
 // search the first num characters in array charArray for character target
 // return a non-zero integer if found, otherwise, return 0
 int targetFound(char charArray[], int num, char target);
-/*
+
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
-void initializeEncryptArray(char key[], char encrypt[]);
-
+void initializeEncryptArray(char key[], char* encrypt[]);
+/*
 // initialize the decrypt array with appropriate substitute letters based 
 // on the encrypt array
 void initializeDecryptArray(char encrypt[], char decrypt[]);

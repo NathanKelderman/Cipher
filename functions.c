@@ -18,28 +18,39 @@ int targetFound(char charArray[], int num, char target) {
 // remove duplicate characters in array word and return the result string
 // caller has to free memory of returned array
 char* removeDuplicates(char word[]) {
-	char* final = (char*)malloc(1*sizeof(char));
+	char* final = (char*)malloc(26*sizeof(char));
 	int count = 0;
 	int freePosition = 0;
 	while (word[count] != '\0') {
 		if (targetFound(final, freePosition, word[count]) == 0) {
 			final[freePosition] = word[count];
 			freePosition++;
-			char* tmp_final = realloc(final, freePosition*sizeof(char));
-			final = tmp_final;
 		}
 		count++;
 	}
 	return final;
 }
 
-/*
+
 // initialize the encrypt array with appropriate cipher letters according 
 // to the given key
-void initializeEncryptArray(char key[], char encrypt[]) {
-	
+void initializeEncryptArray(char key[], char* encrypt[]) {
+	char* encrypt_ = removeDuplicates(key);
+	int freePosition = 0;
+	while ( encrypt_[freePosition] != '\0')
+		freePosition++;
+	int alphabet = 90;
+//	printf("%s\n", encrypt_);
+	while (alphabet > 64 ) {
+		if ( targetFound(encrypt_, freePosition, alphabet) == 0) {
+			encrypt_[freePosition++] = alphabet;	
+		}
+		alphabet--;
+	}
+	*encrypt = encrypt_;
+	printf("\nencrypt %s\n", *encrypt);
 }
-
+/*
 // initialize the decrypt array with appropriate substitute letters based 
 // on the encrypt array
 void initializeDecryptArray(char encrypt[], char decrypt[]) {
