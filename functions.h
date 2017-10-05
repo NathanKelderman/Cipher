@@ -1,6 +1,7 @@
 #ifndef functions
 #define functions
 #include <string.h>
+#include <stdio.h>
 
 // remove duplicate characters in array word and return the result string
 char* removeDuplicates(char word[]);
@@ -16,10 +17,10 @@ void initializeEncryptArray(char key[], char encrypt[]);
 // initialize the decrypt array with appropriate substitute letters based 
 // on the encrypt array
 void initializeDecryptArray(char encrypt[], char decrypt[]);
-/*
+
 // process data from the input file and write the result to the output file
 // pass the encrypt array to parameter substitute if encryption is intended 
 // pass the decrypt array to parameter substitute if decryption is intended
 void processInput(FILE* inf, FILE* outf, char substitute[]);
-*/
+
 #endif

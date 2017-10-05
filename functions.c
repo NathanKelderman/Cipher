@@ -48,7 +48,6 @@ void initializeEncryptArray(char key[], char encrypt[]) {
 		alphabet--;
 	}
 	strcpy(encrypt, encrypt_);
-	printf("\nEncrypt: %s\n", encrypt);
 }
 
 // initialize the decrypt array with appropriate substitute letters based 
@@ -58,18 +57,19 @@ void initializeDecryptArray(char encrypt[], char decrypt[]) {
 	
 	for (i = 0; i <= 26; i++)
 		for (j = 0; j <= 26; j++) {
-//			printf("%c", ((char)(j+65)));
 			if (encrypt[j] == ((char)(i+65)))
 				decrypt[i] = (char)(j+65);
 		}
-	printf("\nDecrypt: %s\n", decrypt);
 }
-/*
+
 // process data from the input file and write the result to the output file
 // pass the encrypt array to parameter substitute if encryption is intended 
 // pass the decrypt array to parameter substitute if decryption is intended
 void processInput(FILE* inf, FILE* outf, char substitute[]) {
-
+	char p;
+	while( (p = (char)fgetc(inf)) != EOF){
+		p = substitute[(int)p-65];
+		fprintf(outf, "%c", p);
+	}
+//	fprintf(outf, );
 }
-*/
-
